@@ -16,7 +16,7 @@ const errorMessage = ref('')
 
 async function login() {
     const { error } = await client.auth.signInWithPassword(credentials);
-    if (!error) return router.push('/');
+    if (!error) return router.push('/protected');
     errorMessage.value = error.message
     console.log(error);
 }
