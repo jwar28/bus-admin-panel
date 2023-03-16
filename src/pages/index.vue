@@ -28,21 +28,18 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <div
-    class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12"
-  >
+  <div class="h-screen bg-gray-100 flex flex-col justify-center">
     <div class="relative sm:max-w-xl sm:mx-auto">
       <div
         class="absolute inset-0 bg-gradient-to-r from-orange-300 to-orange-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"
       ></div>
       <div
-        class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20"
+        class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-12"
       >
         <div class="max-w-md mx-auto">
           <!-- Header -->
-
           <div
-            class="mb-5 font-bold text-2xl text-center flex flex-wrap gap-10"
+            class="mb-5 font-bold text-2xl text-center flex flex-wrap gap-10 justify-center"
           >
             <img
               src="../assets/unab-logo.png"
@@ -54,6 +51,8 @@ watchEffect(async () => {
               <span class="text-4xl font-semibold text-gray-600">Sesión</span>
             </div>
           </div>
+
+          <!-- Form -->
           <div class="sm:text-lg sm:leading-7 flex flex-col gap-3">
             <!-- Email -->
             <div class="form-control">
@@ -86,9 +85,9 @@ watchEffect(async () => {
               <button class="btn btn-outline w-full" @click="supabaseLogin">
                 Ingresar
               </button>
-              <p v-if="errorMessage" class="text-error text-center mt-5">
-                {{ errorMessage }}
-              </p>
+              <div v-if="errorMessage" class="mt-5 flex justify-center">
+                <UiErrorAlert :message="errorMessage" />
+              </div>
             </div>
           </div>
         </div>
