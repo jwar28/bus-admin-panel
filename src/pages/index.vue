@@ -7,26 +7,25 @@ definePageMeta({
 const client = useSupabaseAuthClient();
 const router = useRouter();
 const user = useSupabaseUser();
+const errorMessage = ref('')
 
 const credentials = reactive({
     email: '',
     password: ''
 })
-const errorMessage = ref('')
 
-async function login() {
+const supabaseLogin = async () => {
     const { error } = await client.auth.signInWithPassword(credentials);
-    if (!error) return router.push('/protected');
-    errorMessage.value = error.message
+    if (!error) return router.push("/dashboard");
+    errorMessage.value = error.message;
     console.log(error);
 }
 
 watchEffect(async () => {
     if (user.value) {
-        await router.push('/protected');
+        await router.push('/dashboard');
     }
 });
-
 </script>
 
 <template>
@@ -62,7 +61,7 @@ watchEffect(async () => {
 
                         <!-- Button -->
                         <div class="mt-5">
-                            <button class="btn btn-outline w-full" @click="login">Ingresar</button>
+                            <button class="btn btn-outline w-full" @click="supabaseLogin">Ingresar</button>
                             <p v-if="errorMessage" class="text-error text-center mt-5">{{ errorMessage }}</p>
                         </div>
                     </div>

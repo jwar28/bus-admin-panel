@@ -1,6 +1,7 @@
 <template>
-    <div>
-        A *default* layout
-        <slot />
-    </div>
+  <div>
+    <Sidebar>
+      <slot />
+    </Sidebar>
+  </div>
 </template>
