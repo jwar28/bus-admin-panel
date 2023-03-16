@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Sidebar>
+  <Sidebar>
+    <div class="h-screen w-full p-5">
       <slot />
-    </Sidebar>
-  </div>
+    </div>
+  </Sidebar>
 </template>
