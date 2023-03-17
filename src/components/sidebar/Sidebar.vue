@@ -34,7 +34,7 @@ const sidebarMainItems = [
       <!-- Page content here -->
       <label
         for="my-drawer-2"
-        class="btn btn-square btn-ghost lg:hidden absolute top-4 left-4"
+        class="btn btn-square btn-ghost lg:hidden relative top-16 right-40"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -54,7 +54,7 @@ const sidebarMainItems = [
     <!-- Sidebar -->
     <div class="drawer-side">
       <label for="my-drawer-2" class="drawer-overlay"></label>
-      <div class="w-80 h-screen bg-neutral-focus">
+      <div class="w-64 h-screen bg-neutral-focus">
         <SidebarLogo />
         <ul class="menu p-4 text-base-content space-y-5">
           <li v-for="item in sidebarMainItems">

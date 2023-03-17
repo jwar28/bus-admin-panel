@@ -28,7 +28,7 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <div class="h-screen bg-gray-100 flex flex-col justify-center">
+  <div class="h-screen bg-base-100 flex flex-col justify-center">
     <div class="relative sm:max-w-xl sm:mx-auto">
       <div
         class="absolute inset-0 bg-gradient-to-r from-orange-300 to-orange-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"

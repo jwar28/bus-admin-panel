@@ -27,12 +27,17 @@ const statItems = [
 </script>
 
 <template>
-  <div class="max-w-3xl w-full flex flex-wrap justify-around gap-10">
-    <div class="stats shadow-lg ring-1 ring-primary" v-for="item in statItems">
-      <div class="stat w-36">
-        <div class="stat-title">{{ item.statTitle }}</div>
-        <div class="stat-value">{{ item.statValue }}</div>
-        <div class="stat-desc">{{ item.statDesc }}</div>
+  <div class="max-w-4xl w-full flex flex-wrap justify-evenly gap-10">
+    <div
+      class="stats shadow-xl ring-2 ring-gray-200"
+      v-for="item in statItems"
+    >
+      <div class="stat w-40 text-center">
+        <div class="stat-title text-base-content text-lg font-medium">
+          {{ item.statTitle }}
+        </div>
+        <div class="stat-value text-primary">{{ item.statValue }}</div>
+        <div class="stat-desc text-base-content">{{ item.statDesc }}</div>
       </div>
     </div>
   </div>
