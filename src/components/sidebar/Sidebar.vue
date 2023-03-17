@@ -32,7 +32,9 @@ const sidebarMainItems = [
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col items-center justify-center">
       <!-- Page content here -->
-      <label for="my-drawer-2" class="btn btn-square btn-ghost lg:hidden"
+      <label
+        for="my-drawer-2"
+        class="btn btn-square btn-ghost lg:hidden absolute top-4 left-4"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
