@@ -1,7 +1,9 @@
+import { User } from '~/types/user';
+
 export default async (supabase: any) => {
   let { data: usuarios } = await supabase
     .from('usuarios')
-    .select('nombre, apellido, fecha_creacion, correo_electronico')
+    .select('nombre, apellido, fecha_creacion, correo_electronico, id_usuario')
     .order('fecha_creacion', { ascending: false });
 
   const headers = [
@@ -10,7 +12,7 @@ export default async (supabase: any) => {
     { text: 'Fecha de creacion', value: 'date_added', sortable: true },
   ];
 
-  const users = usuarios?.map((user: any) => {
+  const users = usuarios?.map((user: User) => {
     return {
       name: user.nombre + ' ' + user.apellido,
       date_added: new Date(user.fecha_creacion).toLocaleDateString(),
