@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 defineProps({
-  searchField: Array<String>,
-  searchValue: String,
+  searchField: {
+    type: Array<String>,
+  },
+  searchValue: {
+    type: String,
+  },
 });
 
 defineEmits(['update:searchValue']);
@@ -15,7 +19,9 @@ defineEmits(['update:searchValue']);
         placeholder="Buscar"
         class="input input-bordered w-full"
         :value="searchValue"
-        @input="$emit('update:searchValue', $event.target.value)" />
+        @input="
+          $emit('update:searchValue', ($event.target as HTMLInputElement).value)
+        " />
       <span
         ><svg
           xmlns="http://www.w3.org/2000/svg"

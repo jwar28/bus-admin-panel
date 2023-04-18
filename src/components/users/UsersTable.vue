@@ -6,34 +6,23 @@ const rowsPerPage = 10;
 const searchField = ['name', 'email'];
 const searchValue = ref();
 
-let { data: usuarios } = await supabase
-  .from('usuarios')
-  .select('nombre, apellido, fecha_creacion, correo_electronico')
-  .order('fecha_creacion', { ascending: false });
+const headers = (await getUserData(supabase)).headers;
+const items = (await getUserData(supabase)).users;
 
-const headers = [
-  { text: 'Nombre', value: 'name' },
-  { text: 'Correo electronico', value: 'email' },
-  { text: 'Fecha de creacion', value: 'date_added', sortable: true },
-];
-
-const items = usuarios?.map((user) => {
-  return {
-    name: user.nombre + ' ' + user.apellido,
-    date_added: new Date(user.fecha_creacion).toLocaleDateString(),
-    email: user.correo_electronico,
-  };
-});
+const addButtonClicked = ref(false);
 </script>
 
 <template>
-  <div class="flex justify-around mb-5 w-full">
+  <div class="flex mb-5 w-full justify-between">
     <UiSearchbar
       :search-field="searchField"
       v-model:search-value="searchValue"
       category="usuario" />
 
-    <UsersButtonGroup />
+    <UiCrudButtonGroup
+      btn-complement="Usuario"
+      :selected-data="itemsSelected"
+      :on-click-add-button="() => (addButtonClicked = true)" />
   </div>
 
   <EasyDataTable
