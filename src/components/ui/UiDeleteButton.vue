@@ -7,7 +7,9 @@ defineProps({
 </script>
 
 <template>
-  <button class="btn btn-outline btn-error w-52 shadow-sm">
+  <button
+    class="btn btn-outline btn-error w-52 shadow-sm"
+    @click="$emit('click', onClick)">
     Eliminar {{ btnComplement }}
     <svg
       xmlns="http://www.w3.org/2000/svg"

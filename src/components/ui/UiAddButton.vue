@@ -3,6 +3,9 @@ defineProps({
   btnComplement: {
     type: String,
   },
+  for: {
+    type: String,
+  },
 });
 </script>
 

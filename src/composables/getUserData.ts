@@ -3,7 +3,7 @@ import { User } from '~/types/user';
 export default async (supabase: any) => {
   let { data: usuarios } = await supabase
     .from('usuarios')
-    .select('nombre, apellido, fecha_creacion, correo_electronico, id_usuario')
+    .select('id_usuario, nombre, apellido, fecha_creacion, correo_electronico')
     .order('fecha_creacion', { ascending: false });
 
   const headers = [
@@ -17,6 +17,7 @@ export default async (supabase: any) => {
       name: user.nombre + ' ' + user.apellido,
       date_added: new Date(user.fecha_creacion).toLocaleDateString(),
       email: user.correo_electronico,
+      id: user.id_usuario,
     };
   });
 

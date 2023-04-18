@@ -1,14 +1,23 @@
 <script lang="ts" setup>
 const supabase = useSupabaseClient();
+const { confirmDelete, deleteUsers, deleteAlertMessage } = userDeleteUtils();
 
-const itemsSelected = ref<[]>([]);
+const selectedUsers = ref<[]>([]);
+const showConfirmationModal = ref(false);
 const rowsPerPage = 10;
+
 const searchField = ['name', 'email'];
 const searchValue = ref();
-const buttonsComplement = 'Usuario';
 
 const headers = (await getUserData(supabase)).headers;
 const items = (await getUserData(supabase)).users;
+
+// Delete user logic
+const showConfirmAlert = () => confirmDelete(showConfirmationModal);
+
+const getAlertMessage = () => deleteAlertMessage(selectedUsers);
+
+const deleteSelectedUsers = () => deleteUsers(selectedUsers, supabase);
 </script>
 
 <template>
@@ -21,21 +30,36 @@ const items = (await getUserData(supabase)).users;
 
     <!-- Crud buttons -->
     <div class="flex justify-between gap-5">
+      <!-- Delete -->
       <UiDeleteButton
-        :btn-complement="buttonsComplement"
-        :disabled="itemsSelected.length < 1" />
+        btn-complement="Usuario"
+        :disabled="selectedUsers.length < 1"
+        @click="showConfirmAlert" />
+
+      <!-- Edit -->
       <UiEditButton
-        :btn-complement="buttonsComplement"
-        :disabled="itemsSelected.length < 1 || itemsSelected.length >= 2" />
-      <UiAddButton :btn-complement="buttonsComplement" />
+        btn-complement="Usuario"
+        :disabled="selectedUsers.length < 1 || selectedUsers.length >= 2" />
+
+      <!-- Add -->
+      <UiAddButton btn-complement="Usuario" />
     </div>
+  </div>
+
+  <!-- Confirm alert -->
+  <div class="mb-5">
+    <UiDeleteAlert
+      v-show="showConfirmationModal"
+      :message="getAlertMessage()"
+      @continue="deleteSelectedUsers"
+      @cancel="showConfirmationModal = false" />
   </div>
 
   <!-- Table -->
   <EasyDataTable
     class="shadow-md"
     table-class-name="custom-table"
-    v-model:items-selected="itemsSelected"
+    v-model:items-selected="selectedUsers"
     buttons-pagination
     theme-color="#f0a202"
     :rows-per-page="rowsPerPage"
