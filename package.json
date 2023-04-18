@@ -14,6 +14,7 @@
     "nuxt": "^3.2.3"
   },
   "dependencies": {
-    "daisyui": "^2.51.3"
+    "daisyui": "^2.51.3",
+    "vue3-easy-data-table": "^1.5.42"
   }
 }

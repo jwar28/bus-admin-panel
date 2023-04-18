@@ -5,5 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <h1>buses</h1>
+  <div>
+    <UiPageHeader page-name="Buses" />
+  </div>
 </template>

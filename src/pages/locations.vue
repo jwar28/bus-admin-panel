@@ -7,5 +7,7 @@ definePageMeta({
 
 
 <template>
-    <h1>locations</h1>
+    <div>
+        <UiPageHeader page-name="Paradas" />
+    </div>
 </template>

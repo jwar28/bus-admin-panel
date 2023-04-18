@@ -1,9 +1,15 @@
 <script lang="ts" setup>
 definePageMeta({
-  middleware: "auth",
+  middleware: 'auth',
 });
 </script>
 
 <template>
-  <h1>users</h1>
+  <div>
+    <UiPageHeader page-name="Usuarios" />
+
+    <div class="divider"></div>
+
+    <UsersTable />
+  </div>
 </template>
