@@ -1,8 +1,6 @@
 export default function userDeleteApi() {
   const confirmDelete = (showConfirmationModal: any) =>
-    setTimeout(() => {
-      showConfirmationModal.value = true;
-    }, 300);
+    (showConfirmationModal.value = true);
 
   const deleteUsers = (selectedUsers: any, supabase: any) => {
     const usersToDelete = selectedUsers.value.map((user: any) => {

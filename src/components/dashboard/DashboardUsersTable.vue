@@ -12,7 +12,7 @@ let { data: usuarios } = await supabase
   <DashboardTableLayout
     table-title="Usuarios creados recientemente"
     table-path="/users">
-    <table class="table">
+    <table class="table w-full">
       <thead>
         <!-- headers -->
         <tr>

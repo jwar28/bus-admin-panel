@@ -8,7 +8,7 @@ defineProps({
 <template>
   <div class="w-auto mb-5 rounded-md shadow-md ring-1 ring-gray-200">
     <!-- Titulo -->
-    <p class="my-2 text-md text-center text-base-content font-medium">
+    <p class="m-4 text-md text-center text-base-content font-medium">
       {{ tableTitle }}
     </p>
 
