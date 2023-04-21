@@ -1,12 +1,7 @@
 <script lang="ts" setup>
-defineProps({
-  btnComplement: {
-    type: String,
-  },
-  for: {
-    type: String,
-  },
-});
+defineProps<{
+  btnComplement: string;
+}>();
 </script>
 
 <template>

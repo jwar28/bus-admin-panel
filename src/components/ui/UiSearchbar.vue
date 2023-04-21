@@ -1,14 +1,9 @@
 <script lang="ts" setup>
-defineProps({
-  searchField: {
-    type: Array<String>,
-  },
-  searchValue: {
-    type: String,
-  },
-});
-
-defineEmits(['update:searchValue']);
+defineProps<{
+  searchField: [];
+  searchValue: string | null;
+}>();
+defineEmits<{ 'update:searchValue' }>();
 </script>
 
 <template>

@@ -7,7 +7,7 @@ export default async (supabase: any) => {
     .order('fecha_creacion', { ascending: false });
 
   const headers = [
-    { text: 'Nombre', value: 'name' },
+    { text: 'Nombre', value: 'name', sortable: true },
     { text: 'Correo electronico', value: 'email' },
     { text: 'Fecha de creacion', value: 'date_added', sortable: true },
   ];

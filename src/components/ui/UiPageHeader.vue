@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-defineProps({
-  pageName: {
-    type: String,
-  },
-});
+defineProps<{
+  pageName: string;
+}>();
 </script>
 
 <template>

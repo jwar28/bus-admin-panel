@@ -42,7 +42,7 @@ const deleteSelectedUsers = () => deleteUsers(selectedUsers, supabase);
         :disabled="selectedUsers.length < 1 || selectedUsers.length >= 2" />
 
       <!-- Add -->
-      <UiAddButton btn-complement="Usuario" />
+      <UiAddButton btn-complement="Usuario" for="my-modal" />
     </div>
   </div>
 
@@ -67,4 +67,18 @@ const deleteSelectedUsers = () => deleteUsers(selectedUsers, supabase);
     :search-value="searchValue"
     :headers="headers"
     :items="items" />
+
+  <input type="checkbox" id="my-modal" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+      <p class="py-4">
+        You've been selected for a chance to get one year of subscription to use
+        Wikipedia for free!
+      </p>
+      <div class="modal-action">
+        <label for="my-modal" class="btn">Yay!</label>
+      </div>
+    </div>
+  </div>
 </template>
